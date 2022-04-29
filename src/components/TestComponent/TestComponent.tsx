@@ -1,9 +1,11 @@
+import React from 'react';
+
 interface TestComponentProps {
-  name: string;
+	name: string;
 }
 
 function TestComponent({ name }: TestComponentProps) {
-  return <h1>Hello {name}</h1>;
+	return <h1>Hello {name}</h1>;
 }
 
 export default TestComponent;
