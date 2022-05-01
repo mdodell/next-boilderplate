@@ -16,7 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 600
-test_e2e:
+  test_e2e:
     needs: tests_setup
     name: Playwright tests
     timeout-minutes: 5
@@ -25,8 +25,8 @@ test_e2e:
       - name: Prepare testing env
         uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-        with
-          node-version: "14"
+      - with:
+          node-version: '14'
       - run: npm ci
       - run: npx playwright install --with-deps
       - name: Run tests
