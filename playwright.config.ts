@@ -26,6 +26,8 @@ const config: PlaywrightTestConfig = {
 		// More information: https://playwright.dev/docs/trace-viewer
 		trace: 'retry-with-trace',
 
+		baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3000',
+
 		// All available context options: https://playwright.dev/docs/api/class-browser#browser-new-context
 		// contextOptions: {
 		//   ignoreHTTPSErrors: true,
