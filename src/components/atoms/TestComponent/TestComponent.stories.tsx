@@ -2,6 +2,7 @@ import {
 	generateStorybookConfig,
 	generateStorybookTemplate,
 } from '@utils/storybook/storyGenerationUtils';
+
 import TestComponent from './TestComponent';
 
 const config = generateStorybookConfig({

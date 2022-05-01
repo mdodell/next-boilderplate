@@ -1,34 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS Boilerplate
 
-## Getting Started
+This is a boilerplate repository that can be used for future personal projects. Feel free to fork this repository and modify it to your own needs.
 
-First, run the development server:
+This setup specifically does not use a UI library, and is pretty much a vanilla NextJS project with developer tools setup, so that way any developer can pick this up and install additional dependencies according to their own needs.
 
-```bash
-npm run dev
-# or
-yarn dev
+## Getting started
+
+To get started, run `npm install`. After that, you can run `npm run dev` and find the website hosted at `https://localhost:3000`.
+
+### Commands
+
+Unit Tests:
+
+```
+npm run test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+E2E Tests:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+npm run test:e2e
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Linting:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm run lint
+```
 
-## Learn More
+Lint (with fix option):
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm run lint:fix
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+View Storybook:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+npm run storybook
+```
 
-## Deploy on Vercel
+### Technologies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Framework: [NextJS](https://nextjs.org/docs)
+- Component Documentation: [Storybook](https://storybook.js.org/)
+- E2E Tests: [Playright](https://playwright.dev/)
+- Unit Tests: [React-Testing-Library](https://testing-library.com/docs/react-testing-library/intro/) and [Jest](https://jestjs.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- Code Formatting: [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/)
+- Pre-Commit Hooks: [Husky](https://typicode.github.io/husky/#/)
+- CI/CD: [Github Actions](https://docs.github.com/en/actions)
+- Hosting: [Vercel](https://vercel.com/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Structure
+
+#### Component Hierarchy
+
+Components can be found in the [`components`](./src/components/) directory. This repository follows the [Atomic Design](https://andela.com/insights/structuring-your-react-application-atomic-design-principles/) pattern. They follow the following structure:
+
+```
+ComponentName/
+├── index.ts # Exports CompnoentFile.tsx
+├── ComponentFile.tsx # The Component
+├── ComponentFile.test.tsx # Unit tests
+└── ComponentFile.stories.tsx # Storybook file
+```
+
+#### E2E Tests
+
+E2E tests can be found in the [`e2e`](./src/e2e) directory.
