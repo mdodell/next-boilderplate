@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   setup:
+    name: Setup
     runs-on: ubuntu-latest
 
     steps:
@@ -18,6 +19,7 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
       - run: npm install
   lint:
+    name: Linting
     needs: setup
     runs-on: ubuntu-latest
 
@@ -32,6 +34,7 @@ jobs:
           key: node-modules-${{ hashFiles('package-lock.json') }}
       - run: npm run lint
   unit-tests:
+    name: Unit Tests
     needs: setup
     runs-on: ubuntu-latest
 
@@ -47,6 +50,7 @@ jobs:
       - run: npm run test
   playwright-tests:
     name: Run Playwright Tests
+    needs: setup
     runs-on: 'ubuntu-latest'
     steps:
       - uses: actions/checkout@v2
